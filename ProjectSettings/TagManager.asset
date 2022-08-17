@@ -7,6 +7,10 @@ TagManager:
   - Platform
   - Deathzone
   - GameOver
+  - StartMenu
+  - Pause
+  - Resume
+  - Play
   layers:
   - Default
   - TransparentFX

@@ -5,16 +5,17 @@ using UnityEngine;
 public class PlayerDeath : MonoBehaviour
 {
     private GameObject player;
-    [SerializeField]private GameObject gameOver;
+    private GameObject gameController;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        //gameController = GameObject.FindGameObjectWithTag("GameController");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            gameOver.SetActive(true);
+            //gameController.GetComponent<MenuController>().GameOver();
             player.SetActive(false);
         }
     }
