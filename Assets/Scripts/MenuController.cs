@@ -12,7 +12,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject player;
     void Start()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
     private void Update()
     {

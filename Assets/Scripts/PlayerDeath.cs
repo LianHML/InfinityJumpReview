@@ -13,7 +13,7 @@ public class PlayerDeath : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             //gameController.GetComponent<MenuController>().GameOver();
             player.SetActive(false);

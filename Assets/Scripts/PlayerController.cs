@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private GameObject player;
+    private GameObject scoreChecker;
     private float speed = 6;
-    private float jumpForce = 10;
+    private float jumpForce = 15;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        scoreChecker = GameObject.FindGameObjectWithTag("GameController");
     }
 
     void Update()
@@ -25,6 +27,10 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Platform"))
         {
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, jumpForce);
+        }
+        if (collision.CompareTag("Bonus"))
+        {
+            scoreChecker.GetComponent<ScoreChecker>().ScoreUpdate();
         }
     }
 }
