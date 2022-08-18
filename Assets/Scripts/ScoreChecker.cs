@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ScoreChecker : MonoBehaviour
 {
-    [SerializeField] private GameObject scoreCoin;
+    //[SerializeField] private GameObject scoreCoin;
     private int score;
     [SerializeField] private Text showScore;
+    [SerializeField] private FloatSO scoreSO;
+    [SerializeField] private Text finalScore;
+    private float scoreLegado;
     void Start()
     {
         //scoreCoin = GameObject.FindGameObjectWithTag("Score");
@@ -14,10 +17,19 @@ public class ScoreChecker : MonoBehaviour
 
     public void ScoreUpdate()
     {
-        score++;
-        showScore.text = "Score: " + score;
-        scoreCoin.SetActive(false);
+        scoreSO.Value++;
+        showScore.text = "Score: " + scoreSO.Value;
+        //scoreCoin.SetActive(false);
         //StartCoroutine(CoinGenerator());
+    }
+    public void FinalScoreSet()
+    {
+        finalScore.text = "Your final Score is: " + scoreSO.Value;
+    }
+    public void ScoreReset()
+    {
+        scoreLegado = scoreSO.Value;
+        scoreSO.Value = 0;
     }
 
     //IEnumerator CoinGenerator()

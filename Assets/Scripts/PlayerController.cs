@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private GameObject player;
     private GameObject scoreChecker;
     private float speed = 6;
-    private float jumpForce = 15;
+    private float jumpForce = 12;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Bonus"))
         {
             scoreChecker.GetComponent<ScoreChecker>().ScoreUpdate();
+            collision.gameObject.SetActive(false);
         }
     }
 }
