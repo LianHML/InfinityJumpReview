@@ -12,10 +12,14 @@ public class MenuController : MonoBehaviour
 
     [SerializeField] private FloatSO scoreSO;
     [SerializeField] private FloatSO totalScoreSO;
+    [SerializeField] private FloatSO totalDistanceSO;
+    [SerializeField] private FloatSO distanceSO;
     [SerializeField] private Text showScore;
+    [SerializeField] private Text showDistance;
     [SerializeField] private Text finalScore;
     [SerializeField] private Text lastScore;
     [SerializeField] private Text totalScore;
+    [SerializeField] private Text totalDistance;
 
     void Start()
     {
@@ -40,6 +44,7 @@ public class MenuController : MonoBehaviour
     public void PlayGame()
     {
         gameObject.GetComponent<ScoreChecker>().ScoreReset();
+        gameObject.GetComponent<ScoreChecker>().DistanceReset();
         Time.timeScale = 1f;
     }
 
@@ -64,11 +69,13 @@ public class MenuController : MonoBehaviour
     public void ShowScore()
     {
         showScore.text = "Score: " + scoreSO.Value;
+        showDistance.text = "Distance: " + distanceSO.Value;
     }
 
     public void ScoreMenu()
     {
         lastScore.text = "Last Score: " + scoreSO.Value;
         totalScore.text = "Total Score: " + totalScoreSO.Value;
+        totalDistance.text = "Total Distance " + totalDistanceSO.Value;
     }
 }

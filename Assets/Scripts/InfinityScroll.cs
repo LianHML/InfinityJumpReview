@@ -7,6 +7,8 @@ public class InfinityScroll : MonoBehaviour
 {
     private GameObject[] platform;
 
+    private GameObject gameController;
+
     private float width = 6f;
 
     private Vector2 speed;
@@ -15,6 +17,8 @@ public class InfinityScroll : MonoBehaviour
 
     void Start()
     {
+        gameController = GameObject.FindGameObjectWithTag("GameController");
+
         platform = GameObject.FindGameObjectsWithTag("Platform");
 
         speed = new Vector2(0, -2);
@@ -39,6 +43,7 @@ public class InfinityScroll : MonoBehaviour
                 RandomPlatformPosition(platformScroll);
             }
         }
+        gameController.GetComponent<ScoreChecker>().DistanceInGame();
     }
 
     private void RandomPlatformPosition(GameObject platform)

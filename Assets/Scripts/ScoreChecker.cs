@@ -5,7 +5,13 @@ public class ScoreChecker : MonoBehaviour
     private FloatSO scoreSO;
 
     [SerializeField]
-    private FloatSO totalScore;
+    private FloatSO totalScoreSO;
+
+    [SerializeField]
+    private FloatSO distanceSO;
+
+    [SerializeField]
+    private FloatSO totalDistanceSO;
 
     void Start()
     {
@@ -15,10 +21,19 @@ public class ScoreChecker : MonoBehaviour
     public void ScoreUpdate()
     {
         scoreSO.Value++;
-        totalScore.Value++;
+        totalScoreSO.Value++;
     }
     public void ScoreReset()
     {
         scoreSO.Value = 0;
+    }
+    public void DistanceInGame()
+    {
+        distanceSO.Value++;
+        totalDistanceSO.Value++;
+    }
+    public void DistanceReset()
+    {
+        distanceSO.Value = 0;
     }
 }
