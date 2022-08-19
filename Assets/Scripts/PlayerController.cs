@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Bonus"))
         {
             scoreChecker.GetComponent<ScoreChecker>().ScoreUpdate();
+            scoreChecker.GetComponent<MenuController>().ShowScore();
             collision.gameObject.SetActive(false);
         }
     }
