@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,10 +16,12 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Text finalScore;
     [SerializeField] private Text lastScore;
     [SerializeField] private Text totalScore;
+
     void Start()
     {
         Time.timeScale = 0f;
     }
+
     private void Update()
     {
         if (!player.activeSelf)GameOver();
@@ -49,18 +49,23 @@ public class MenuController : MonoBehaviour
         gameOver.SetActive(true);
         Time.timeScale = 0f;
     }
+
     public void PauseGame()
     {
+        Application.targetFrameRate = 60;
         Time.timeScale = 0f;
     }
+
     public void ResumeGame()
     {
         Time.timeScale = 1f;
     }
+
     public void ShowScore()
     {
         showScore.text = "Score: " + scoreSO.Value;
     }
+
     public void ScoreMenu()
     {
         lastScore.text = "Last Score: " + scoreSO.Value;

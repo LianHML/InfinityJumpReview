@@ -5,13 +5,21 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private GameObject player;
-    private GameObject scoreChecker;
-    private float speed = 6;
-    private float jumpForce = 12;
+
+    [SerializeField]
+    private GameObject gameController;
+
+    [SerializeField]
+    private GameObject powerUps;
+
+    private const float speed = 6;
+
+    private const float jumpForce = 12; 
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        scoreChecker = GameObject.FindGameObjectWithTag("GameController");
+        gameController = GameObject.FindGameObjectWithTag("GameController");
     }
 
     void Update()
@@ -22,6 +30,7 @@ public class PlayerController : MonoBehaviour
             player.transform.Translate(direction * speed, 0f, 0f);
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Platform"))
@@ -30,9 +39,10 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.CompareTag("Bonus"))
         {
-            scoreChecker.GetComponent<ScoreChecker>().ScoreUpdate();
-            scoreChecker.GetComponent<MenuController>().ShowScore();
-            collision.gameObject.SetActive(false);
+            powerUps.GetComponent<PowerUps>().RandomPowerUpSelector();
+            gameController.GetComponent<ScoreChecker>().ScoreUpdate();
+            gameController.GetComponent<MenuController>().ShowScore();
+            collision.gameObject.SetActive(false); 
         }
     }
 }

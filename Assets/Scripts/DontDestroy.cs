@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
-{    private void Awake()
+{    
+    private void Awake()
     {
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+        DontDestroyOnLoad(gameObject);
     }
+
     private void Start()
     {
         for (int i = 0; i < FindObjectsOfType<DontDestroy>().Length; i++)

@@ -6,8 +6,11 @@ using System.Linq ;
 public class InfinityScroll : MonoBehaviour
 {
     private GameObject[] platform;
+
     private float width = 6f;
+
     private Vector2 speed;
+
     private Vector2 randomWidth;
 
     void Start()

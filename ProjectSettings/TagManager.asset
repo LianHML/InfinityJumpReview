@@ -11,9 +11,9 @@ TagManager:
   - Pause
   - Resume
   - Play
-  - Score
   - CoinChecker
   - Bonus
+  - PlatformCollider
   layers:
   - Default
   - TransparentFX

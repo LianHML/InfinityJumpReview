@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InfinityBonusGenerator : MonoBehaviour
 {
     private GameObject[] bonus;
+
     private float width = 6f;
+
     private Vector2 speed;
+
     private Vector2 randomWidth;
 
     void Start()
