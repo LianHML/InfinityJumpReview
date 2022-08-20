@@ -15,6 +15,7 @@ TagManager:
   - Bonus
   - PlatformCollider
   - PowerUp
+  - PowerUpMaster
   layers:
   - Default
   - TransparentFX

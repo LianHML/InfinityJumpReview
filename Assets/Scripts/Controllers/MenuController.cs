@@ -23,7 +23,7 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     private void Update()

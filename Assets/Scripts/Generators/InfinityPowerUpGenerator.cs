@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class InfinityPowerUpGenerator : MonoBehaviour
 {
-    private GameObject[] powerup;
+    private GameObject[] powerupGroup;
+
+    private GameObject powerUpObj;
 
     private float width = 6f;
 
@@ -12,7 +14,9 @@ public class InfinityPowerUpGenerator : MonoBehaviour
 
     void Start()
     {
-        powerup = GameObject.FindGameObjectsWithTag("PowerUp");
+        powerupGroup = GameObject.FindGameObjectsWithTag("PowerUp");
+
+        powerUpObj = GameObject.FindGameObjectWithTag("PowerUpMaster");
 
         speed = new Vector2(0, -2);
 
@@ -26,7 +30,7 @@ public class InfinityPowerUpGenerator : MonoBehaviour
 
     private void InstantiatePowerUp()
     {
-        foreach (GameObject powerUpGen in powerup)
+        foreach (GameObject powerUpGen in powerupGroup)
         {
             powerUpGen.transform.Translate(speed * Time.deltaTime);
 
@@ -35,7 +39,7 @@ public class InfinityPowerUpGenerator : MonoBehaviour
                 powerUpGen.transform.Translate(new Vector2(0, width * 2));
                 RandomPowerUpPosition(powerUpGen);
 
-                if (!powerUpGen.activeSelf)
+                if (!powerUpGen.activeSelf && powerUpObj.GetComponent<PowerUpBehavior>().isPowered == false)
                 {
                     powerUpGen.SetActive(true);
                 }
