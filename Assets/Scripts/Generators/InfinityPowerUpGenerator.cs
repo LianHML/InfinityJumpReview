@@ -12,7 +12,7 @@ public class InfinityPowerUpGenerator : MonoBehaviour
 
     void Start()
     {
-        powerup = GameObject.FindGameObjectsWithTag("Powerup");
+        powerup = GameObject.FindGameObjectsWithTag("PowerUp");
 
         speed = new Vector2(0, -2);
 

@@ -43,7 +43,6 @@ public class InfinityScroll : MonoBehaviour
                 RandomPlatformPosition(platformScroll);
             }
         }
-        gameController.GetComponent<ScoreChecker>().DistanceInGame();
     }
 
     private void RandomPlatformPosition(GameObject platform)

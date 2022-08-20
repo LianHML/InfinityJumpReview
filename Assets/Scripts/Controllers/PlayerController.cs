@@ -39,9 +39,13 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.CompareTag("Bonus"))
         {
-            powerUps.GetComponent<PowerUps>().RandomPowerUpSelector();
             gameController.GetComponent<ScoreChecker>().ScoreUpdate();
             gameController.GetComponent<MenuController>().ShowScore();
+            collision.gameObject.SetActive(false); 
+        }
+        if (collision.CompareTag("PowerUp"))
+        {
+            powerUps.GetComponent<PowerUpBehavior>().RandomPowerUpSelector();
             collision.gameObject.SetActive(false); 
         }
     }

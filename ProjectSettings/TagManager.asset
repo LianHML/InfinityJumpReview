@@ -14,6 +14,7 @@ TagManager:
   - CoinChecker
   - Bonus
   - PlatformCollider
+  - PowerUp
   layers:
   - Default
   - TransparentFX
