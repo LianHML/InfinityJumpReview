@@ -7,17 +7,19 @@ public class PowerUpBehavior : MonoBehaviour
     GameObject[] platformCollider;
 
     private GameObject gameController;
-    private GameObject coin;
     private GameObject player;
 
     public bool isPowered;
+    public bool allowFly;
+    public bool coinMultiplyer;
+
+    public int scoreMultiplyer = 1;
 
     private Vector2 randomRange;
 
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController");
-        coin = GameObject.FindGameObjectWithTag("Bonus");
         player = GameObject.FindGameObjectWithTag("Player");
         randomRange = new Vector2(1, 3);
     }
@@ -30,19 +32,17 @@ public class PowerUpBehavior : MonoBehaviour
         {
             case 1:
                 {
-                    StartCoroutine(FlyingJump());
+                    StartCoroutine(GhostJump());
                 }
                 break;
             case 2:
                 {
                     StartCoroutine(FlyingJump());
-                    //FlyingJump();
                 }
                 break;
             case 3:
                 {
-                    StartCoroutine(FlyingJump());
-                    //CoinMagnect();
+                    StartCoroutine(CoinMultiplyer());
                 }
                 break;
         }
@@ -50,26 +50,47 @@ public class PowerUpBehavior : MonoBehaviour
 
     public IEnumerator GhostJump()
     {
-        Debug.Log("Vou ativar o ghost");
+        Debug.Log("Powerup 1");
         gameController.GetComponent<PlatformBehavior>().ToggleCollider();
         isPowered = true;
 
         yield return new WaitForSeconds(10f);
 
-        Debug.Log("Vou desativar o ghost");
         gameController.GetComponent<PlatformBehavior>().ToggleCollider();
-        isPowered = false;
+        StartCoroutine(TurnPoweredOff());
     }
 
     public IEnumerator FlyingJump()
     {
         Debug.Log("Powerup 2");
-        player.GetComponent<Rigidbody2D>().gravityScale = 0;
+        player.GetComponent<Rigidbody2D>().gravityScale = 0f;
         isPowered = true;
+        allowFly = true;
 
         yield return new WaitForSeconds(30f);
 
-        player.GetComponent<Rigidbody2D>().gravityScale = 2;
+        player.GetComponent<Rigidbody2D>().gravityScale = 2f;
+        allowFly = false;
+        StartCoroutine(TurnPoweredOff());
+    }
+
+    public IEnumerator CoinMultiplyer()
+    {
+        Debug.Log("Powerup 3");
+        isPowered = true;
+        coinMultiplyer = true;
+        scoreMultiplyer = 4;
+
+        yield return new WaitForSeconds(30);
+
+        scoreMultiplyer = 1;
+        coinMultiplyer = false;
+        StartCoroutine(TurnPoweredOff());
+    }
+
+    private IEnumerator TurnPoweredOff()
+    {
+        yield return new WaitForSeconds(60);
         isPowered = false;
     }
 

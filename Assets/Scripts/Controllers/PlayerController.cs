@@ -26,14 +26,20 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal") != 0)
         {
-            float direction = Input.GetAxis("Horizontal") * Time.deltaTime;
-            player.transform.Translate(direction * speed, 0f, 0f);
+            float directionX = Input.GetAxis("Horizontal") * Time.deltaTime;
+            player.transform.Translate(directionX * speed, 0f, 0f);
+        }
+
+        if (Input.GetAxis("Vertical") != 0 && powerUps.GetComponent<PowerUpBehavior>().allowFly == true)
+        {
+            float directionY = Input.GetAxis("Vertical") * Time.deltaTime;
+            player.transform.Translate(0f, directionY * speed, 0f);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Platform"))
+        if (collision.CompareTag("Platform") && powerUps.GetComponent<PowerUpBehavior>().allowFly == false)
         {
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, jumpForce);
         }

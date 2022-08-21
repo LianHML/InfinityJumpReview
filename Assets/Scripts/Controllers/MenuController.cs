@@ -14,6 +14,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private FloatSO totalScoreSO;
     [SerializeField] private FloatSO totalDistanceSO;
     [SerializeField] private FloatSO distanceSO;
+
     [SerializeField] private Text showScore;
     [SerializeField] private Text showDistance;
     [SerializeField] private Text finalScore;
@@ -23,12 +24,13 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        //Time.timeScale = 0f;
+        Time.timeScale = 0f;
     }
 
     private void Update()
     {
         if (!player.activeSelf)GameOver();
+        ShowDistance();
     }
 
     public void RestartScene()
@@ -69,6 +71,9 @@ public class MenuController : MonoBehaviour
     public void ShowScore()
     {
         showScore.text = "Score: " + scoreSO.Value;
+    }
+    public void ShowDistance()
+    {
         showDistance.text = "Distance: " + distanceSO.Value;
     }
 

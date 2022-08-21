@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinBehavior : MonoBehaviour
 {
-    //CoinMagnect() foi desativado pois não é compativel com o InfinityPowerUpGenerator ainda
+    //CoinMagnect() foi desativado pois ainda não é compativel com o InfinityPowerUpGenerator
 
     //GameObject powerUpBehavior;
 
