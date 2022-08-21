@@ -26,9 +26,13 @@ public class ScoreChecker : MonoBehaviour
         if (powerUp.GetComponent<PowerUpBehavior>().coinMultiplyer)
         {
             scoreSO.Value += 1 * powerUp.GetComponent<PowerUpBehavior>().scoreMultiplyer;
+            totalScoreSO.Value += 1 * powerUp.GetComponent<PowerUpBehavior>().scoreMultiplyer;
         }
-        scoreSO.Value++;
-        totalScoreSO.Value++;
+        else
+        {
+            scoreSO.Value++;
+            totalScoreSO.Value++;
+        }
     }
     public void ScoreReset()
     {

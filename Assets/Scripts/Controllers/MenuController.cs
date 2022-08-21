@@ -17,7 +17,7 @@ public class MenuController : MonoBehaviour
 
     [SerializeField] private Text showScore;
     [SerializeField] private Text showDistance;
-    [SerializeField] private Text finalScore;
+    [SerializeField] private Text finalDistance;
     [SerializeField] private Text lastScore;
     [SerializeField] private Text totalScore;
     [SerializeField] private Text totalDistance;
@@ -52,7 +52,7 @@ public class MenuController : MonoBehaviour
 
     public void GameOver()
     {
-        finalScore.text = "Your final Score is: " + scoreSO.Value;
+        finalDistance.text = "Your final Distance is: " + distanceSO.Value;
         gameOver.SetActive(true);
         Time.timeScale = 0f;
     }

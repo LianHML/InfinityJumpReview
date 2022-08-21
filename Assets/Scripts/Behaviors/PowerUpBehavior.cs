@@ -21,7 +21,7 @@ public class PowerUpBehavior : MonoBehaviour
     {
         gameController = GameObject.FindGameObjectWithTag("GameController");
         player = GameObject.FindGameObjectWithTag("Player");
-        randomRange = new Vector2(1, 3);
+        randomRange = new Vector2(1, 4);
     }
 
     
