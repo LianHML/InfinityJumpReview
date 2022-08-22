@@ -23,7 +23,7 @@ public class InfinityScroll : MonoBehaviour
 
         speed = new Vector2(0, -2);
 
-        randomWidth = new Vector2(-5.5f, 5.5f);
+        randomWidth = new Vector2(width * -1, width);
     }
 
     void Update()
